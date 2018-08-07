@@ -5,15 +5,17 @@ const SelectView = require('./views/select_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const selectElement = document.querySelector('ol#planet-list');
+  const selectView = new SelectView(selectElement)
+
+  selectView.bindEvents();
+
   const planetInfoView = document.querySelector('div#planet-details');
   const planetInfo = new PlanetInfoView(planetInfoView);
   planetInfo.bindEvents();
 
   const planetsDataModel = new SolarSystem(planetsData);
+  planetsDataModel.bindEvents();
   console.log(planetsDataModel.planets);
-
-  const selectElement = document.querySelector('ol#planet-list');
-  const selectView = new SelectView(selectElement)
-  selectView.bindEvents();
 
 });

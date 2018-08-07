@@ -5,8 +5,10 @@ const SelectView = function(element){
 };
 
   SelectView.prototype.bindEvents = function () {
-    PubSub.subscribe('Planets:planet-list-ready', (evt) => {
+
+    PubSub.subscribe('SolarSystem:planet-list-ready', (evt) => {
       const allPlanets = evt.detail;
+      console.log(allPlanets);
       this.createList(allPlanets);
     });
 
@@ -20,7 +22,8 @@ SelectView.prototype.createList = function (planetsData) {
   planetsData.forEach((planet,index) => {
   const listItem = document.createElement('li');
   listItem.textContent = planet.name;
-  listItem.value = index;
+  listItem.value = index + 1;
+  console.log("hi");
   this.element.appendChild(listItem);
 })
 };

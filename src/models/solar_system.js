@@ -1,15 +1,16 @@
 const planets = require('../data/planets.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const SolarSystem = function(planets) {
   this.planets = planets;
 };
 
 SolarSystem.prototype.bindEvents = function(){
-  PubSub.publish('SolarSystems:planet-list-ready', this.planets);
+  PubSub.publish('SolarSystem:planet-list-ready', this.planets);
 
   PubSub.subscribe('SelectView:click', (evt) => {
     const selectedIndex = evt.detail;
-    this.publishPlanetDetail(selectedIndex);
+    this.publishPlanetDetail(selectedIndex - 1);
   });
 };
 
