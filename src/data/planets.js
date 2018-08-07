@@ -82,6 +82,6 @@ const planets = [
     image: 'images/neptune.jpg'
   }
 ];
-}
+
 
 module.exports = planets;
