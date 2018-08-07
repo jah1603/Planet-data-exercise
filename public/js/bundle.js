@@ -76,31 +76,9 @@
   !*** ./src/app.js ***!
   \********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("const planetsData = __webpack_require__(/*! ./data/planets.js */ \"./src/data/planets.js\");\nconst SolarSystem = __webpack_require__(/*! ./models/solar_system.js */ \"./src/models/solar_system.js\");\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  const planetsDataModel = new SolarSystem(planetsData);\n  console.log(planetsDataModel.planets);\n});\n\n\n//# sourceURL=webpack:///./src/app.js?");
-
-/***/ }),
-
-/***/ "./src/data/planets.js":
-/*!*****************************!*\
-  !*** ./src/data/planets.js ***!
-  \*****************************/
-/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (85:0)\\nYou may need an appropriate loader to handle this file type.\\n|   }\\n| ];\\n| }\\n| \\n| module.exports = planets;\");\n\n//# sourceURL=webpack:///./src/data/planets.js?");
-
-/***/ }),
-
-/***/ "./src/models/solar_system.js":
-/*!************************************!*\
-  !*** ./src/models/solar_system.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("const planets = __webpack_require__(/*! ../data/planets.js */ \"./src/data/planets.js\");\n\nconst SolarSystem = function(planets) {\n  this.planets = planets;\n};\n\nSolarSystem.prototype.bindEvents = function(){\n  PubSub.publish('SolarSystems:planet-list-ready', this.planets);\n\n  PubSub.subscribe('SelectView:click', (evt) => {\n    const selectedIndex = evt.detail;\n    this.publishPlanetDetail(selectedIndex);\n  });\n};\n\nSolarSystem.prototype.publishPlanetDetail = function(planetIndex){\n  const selectedPlanet = this.planets[planetIndex];\n  PubSub.publish('SolarSystem:selected-planet-ready', selectedPlanet)\n};\n\nmodule.exports = SolarSystem;\n\n\n//# sourceURL=webpack:///./src/models/solar_system.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (17:23)\\nYou may need an appropriate loader to handle this file type.\\n|  const planetInfoView = document.querySelector('.planet-details');\\n|  const planetInfo = new PlanetInfoView(planetInfoView);\\n| planetInfo.bindEvents():\\n| \\n| \");\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
