@@ -1,6 +1,6 @@
-const Planets = function () {
 
-this.planets = [
+
+const planets = [
   {
     name: 'Mercury',
     orbit: 87.969,
@@ -84,23 +84,4 @@ this.planets = [
 ];
 }
 
-
-Planets.prototype.bindEvents = function(){
-  PubSub.publish('Planetss:planet-list-ready', this.planets);
-
-  PubSub.subscribe('SelectView:click', (evt) => {
-    const selectedIndex = evt.detail;
-    this.publishPlanetDetail(selectedIndex);
-  });
-};
-
-Planets.prototype.publishPlanetDetail = function(planetIndex){
-  const selectedPlanet = this.planets[planetIndex];
-  PubSub.publish('Planets:selected-planet-ready', selectedPlanet)
-};
-
-
-
-
-
-module.exports = Planets;
+module.exports = planets;
